@@ -1,0 +1,816 @@
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+/* =====================================================
+                    BODY
+===================================================== */
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(135deg,#0F172A,#1E3A8A,#2563EB);
+
+    min-height:100vh;
+
+    padding:20px;
+
+    color:#1E293B;
+
+}
+/* =====================================================
+                MAIN CONTAINER
+===================================================== */
+
+.container{
+
+    width:95%;
+
+    max-width:1400px;
+
+    margin:40px auto;
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:
+        0 20px 50px rgba(15,23,42,0.15);
+
+    border:1px solid #E2E8F0;
+
+}
+
+/* =====================================================
+                    HEADER
+===================================================== */
+header{
+
+    background:linear-gradient(90deg,#2563EB,#1E40AF);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    margin-bottom:35px;
+
+}
+
+header h1{
+
+    font-size:40px;
+
+    margin-bottom:8px;
+
+    color:white;
+
+}
+
+header p{
+
+    color:#E2E8F0;
+
+    font-size:16px;
+
+}
+
+/* =====================================================
+                DASHBOARD
+===================================================== */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+/* =====================================================
+                    CARD
+===================================================== */
+
+.card{
+
+    background:#F8FAFC;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/* Total */
+
+.card:nth-child(1){
+
+    border-top:5px solid #2563EB;
+
+}
+
+/* Pending */
+
+.pending{
+
+   border-top:5px solid #F59E0B;
+}
+
+/* Completed */
+
+.completed{
+
+    border-top:5px solid #10B981;
+}
+
+.card h3{
+
+    color:#64748B;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+}
+
+.card h2{
+
+    font-size:42px;
+
+    color:#1E293B;
+
+}
+
+/* =====================================================
+            FORM + DETAILS SECTION
+===================================================== */
+
+.top-section{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    margin-bottom:40px;
+
+}
+
+/* =====================================================
+                FORM CARD
+===================================================== */
+
+.form-card{
+
+   background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.form-card h2{
+
+    text-align:center;
+
+    color:#2563EB;
+
+    margin-bottom:25px;
+
+}
+
+/* =====================================================
+                    FORM
+===================================================== */
+
+#taskForm{
+
+    display:grid;
+
+    grid-template-columns:180px 1fr;
+
+    gap:18px;
+
+    align-items:center;
+
+}
+
+/* =====================================================
+                LABEL
+===================================================== */
+
+label{
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+/* =====================================================
+            INPUTS
+===================================================== */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:13px;
+
+    border:2px solid #E2E8F0;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 8px rgba(37,99,235,.25);
+
+}
+
+/* =====================================================
+                SAVE BUTTON
+===================================================== */
+
+#saveBtn{
+
+    grid-column:1/3;
+
+    padding:14px;
+
+    background:linear-gradient(90deg,#2563EB,#1D4ED8);
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#saveBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(37,99,235,.3);
+    
+    background:blue;
+
+}
+
+
+/* =====================================================
+                DETAILS CARD
+===================================================== */
+
+.details-card{
+
+   background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.details-card h2{
+
+    text-align:center;
+
+    color:#1E3A8A;
+
+    margin-bottom:20px;
+
+}
+
+.details-card table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.details-card td{
+
+    padding:12px;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.details-card td:first-child{
+
+    font-weight:600;
+
+    color:#1E293B;
+
+    width:40%;
+
+}
+/* =====================================================
+                    SEARCH BAR
+===================================================== */
+
+.search-section{
+
+    margin-bottom:35px;
+
+}
+
+#searchTask{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:2px solid #E2E8F0;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    background:#FFFFFF;
+
+    transition:.3s;
+
+}
+
+#searchTask:focus{
+
+    background:#FFFFFF;
+
+   border:2px solid #CBD5E1;
+
+}
+
+/* =====================================================
+                    TABLE CARD
+===================================================== */
+
+.table-card{
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+.table-card h2{
+
+    text-align:center;
+
+    color:#1E3A8A;
+
+    margin-bottom:20px;
+
+}
+
+/* =====================================================
+                    TABLE
+===================================================== */
+
+#taskTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+}
+
+#taskTable thead{
+
+    background:linear-gradient(90deg,#2563EB,#4F46E5);
+
+    color:white;
+
+}
+
+#taskTable th{
+
+    padding:15px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+#taskTable td{
+
+    padding:14px;
+
+    text-align:center;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+#taskTable tbody tr{
+
+    transition:.3s;
+
+}
+
+#taskTable tbody tr:nth-child(even){
+
+    background:#F8FAFC;
+
+}
+
+#taskTable tbody tr:hover{
+
+    background:#EEF4FF;
+
+}
+
+/* =====================================================
+                CHECKBOX
+===================================================== */
+
+input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    cursor:pointer;
+
+}
+
+/* =====================================================
+                PRIORITY BADGES
+===================================================== */
+
+.high{
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.medium{
+
+    background:#F59E0B;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.low{
+
+    background:#10B981;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* =====================================================
+                STATUS BADGES
+===================================================== */
+
+.pending-status{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.progress-status{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.completed-status{
+
+    background:#D1FAE5;
+
+    color:#065F46;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* =====================================================
+                ACTION BUTTONS
+===================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.action-buttons button{
+
+    padding:13px 30px;
+
+    border:none;
+
+    border-radius:10px;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+/* View */
+
+#viewBtn{
+
+    background:#2563EB;
+}
+
+/* Edit */
+
+#editBtn{
+
+    background:#F59E0B;
+
+}
+
+/* Delete */
+
+#deleteBtn{
+
+    background:#EF4444;
+
+}
+
+/* Hover */
+
+.action-buttons button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+/* =====================================================
+                    FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    color:#CBD5E1;
+
+    font-size:15px;
+
+}
+
+/* =====================================================
+                SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#E5E7EB;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* =====================================================
+            RESPONSIVE DESIGN
+===================================================== */
+
+@media(max-width:1100px){
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .top-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .container{
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    #taskForm{
+
+        grid-template-columns:1fr;
+
+    }
+
+    #saveBtn{
+
+        grid-column:1;
+
+    }
+
+    .action-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .action-buttons button{
+
+        width:100%;
+
+    }
+
+    #taskTable{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    header h1{
+
+        font-size:30px;
+
+    }
+
+    .card h2{
+
+        font-size:30px;
+
+    }
+
+}
