@@ -60,14 +60,28 @@ const pendingTasks = document.getElementById("pendingTasks");
 // Completed task count
 const completedTasks = document.getElementById("completedTasks");
 
+
 // =====================================================
 //              GENERATE TASK ID
 // =====================================================
-// Create unique task ID
-function generateTaskId(){
+function generateTaskId() {
 
-    return "TASK-" + Date.now() + "-" + Math.floor(Math.random()*100);
+    // If no tasks exist
+    if (tasks.length === 0) {
+        return "TASK-001";
+    }
 
+    // Get last task ID
+    let lastId = tasks[tasks.length - 1].id;
+
+    // Extract number
+    let number = parseInt(lastId.split("-")[1]);
+
+    // Increase number
+    number++;
+
+    // Return formatted ID
+    return "TASK-" + String(number).padStart(3, "0");
 }
 
 // =====================================================
@@ -338,10 +352,6 @@ const detailStart = document.getElementById("detailStart");
 const detailDue = document.getElementById("detailDue");
 
 
-
-// =====================================================
-//              VIEW TASK DETAILS
-// =====================================================
 // =====================================================
 //              VIEW TASK DETAILS
 // =====================================================
