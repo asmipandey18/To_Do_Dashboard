@@ -342,55 +342,59 @@ const detailDue = document.getElementById("detailDue");
 // =====================================================
 //              VIEW TASK DETAILS
 // =====================================================
+// =====================================================
+//              VIEW TASK DETAILS
+// =====================================================
+
 viewBtn.addEventListener("click", function(){
 
-    // Find selected checkbox
-
-    let selected = document.querySelector(
+    // Find all selected checkboxes
+    let selected = document.querySelectorAll(
         ".selectTask:checked"
     );
 
-    if(!selected){
-
+    // No task selected
+    if(selected.length === 0){
 
         alert("Please select a task first");
 
-
         return;
-
 
     }
 
-    // Get task ID
-    let id = selected.getAttribute("data-id");
+    // More than one task selected
+    if(selected.length > 1){
+
+        alert("Please select only one task to view.");
+
+        return;
+
+    }
+
+    // Get selected task ID
+    let id = selected[0].getAttribute("data-id");
 
     // Find task
     let task = tasks.find(function(item){
-        return item.id === id;
-    });
 
+        return item.id === id;
+
+    });
 
     // Show details
     detailId.innerText = task.id;
 
-
     detailName.innerText = task.name;
-
 
     detailDescription.innerText = task.description;
 
-
     detailPriority.innerText = task.priority;
-
 
     detailCategory.innerText = task.category;
 
-
     detailStatus.innerText = task.status;
 
-
     detailStart.innerText = task.startDate;
-
 
     detailDue.innerText = task.dueDate;
 
@@ -407,76 +411,63 @@ const editBtn = document.getElementById("editBtn");
 // =====================================================
 editBtn.addEventListener("click", function(){
 
+    // Get all selected checkboxes
+    let selected = document.querySelectorAll(".selectTask:checked");
 
-
-    // Find selected checkbox
-
-    let selected = document.querySelector(
-        ".selectTask:checked"
-    );
-
-    if(!selected){
-
+    // No task selected
+    if(selected.length === 0){
 
         alert("Please select a task to edit");
 
-
         return;
+
     }
 
-    // Get task ID
+    // More than one task selected
+    if(selected.length > 1){
 
-    let id = selected.getAttribute("data-id");
+        alert("Please select only one task to edit.");
+
+        return;
+
+    }
+
+    // Get selected task ID
+    let id = selected[0].getAttribute("data-id");
 
     // Find task
-
     let task = tasks.find(function(item){
-
 
         return item.id === id;
 
     });
 
-
     // Enable edit mode
     editMode = true;
 
-
     editId = id;
+
     // Load data into form
-
-
     taskId.value = task.id;
-
 
     taskName.value = task.name;
 
-
     description.value = task.description;
-
 
     priority.value = task.priority;
 
-
     category.value = task.category;
-
 
     startDate.value = task.startDate;
 
-
     dueDate.value = task.dueDate;
-
 
     status.value = task.status;
 
-
-
-
-
     // Change button text
     saveBtn.innerHTML = "✏ Update Task";
-});
 
+});
 
 // =====================================================
 //              DELETE ELEMENT
@@ -484,91 +475,77 @@ editBtn.addEventListener("click", function(){
 // Delete button
 const deleteBtn = document.getElementById("deleteBtn");
 
-
 // =====================================================
 //              DELETE TASK
 // =====================================================
 deleteBtn.addEventListener("click", function(){
 
-    // Find selected checkbox
+    // Get all selected checkboxes
+    let selected = document.querySelectorAll(".selectTask:checked");
 
-    let selected = document.querySelector(
-        ".selectTask:checked"
-    );
+    // Check if at least one task is selected
+    if(selected.length === 0){
 
-    // Check if task is selected
-
-    if(!selected){
-
-
-        alert("Please select a task to delete");
-
+        alert("Please select at least one task to delete");
 
         return;
-
 
     }
 
     // Confirmation before delete
     let confirmDelete = confirm(
-        "Are you sure you want to delete this task?"
+        "Are you sure you want to delete the selected task(s)?"
     );
 
     // If user cancels
-
     if(!confirmDelete){
-
 
         return;
 
-
     }
-    // Get selected task ID
-    let id = selected.getAttribute("data-id");
 
-    // Remove task from array
+    // Get all selected IDs
+    let selectedIds = [];
+
+    selected.forEach(function(item){
+
+        selectedIds.push(item.getAttribute("data-id"));
+
+    });
+
+    // Remove all selected tasks
     tasks = tasks.filter(function(task){
 
-    return task.id !== id;
+        return !selectedIds.includes(task.id);
 
-});
+    });
 
-
-    // Save deleted data
+    // Save updated data
     saveTasks();
-
 
     // Refresh table
     displayTasks();
 
-
-    // Update dashboard count
+    // Update dashboard
     updateDashboard();
 
-
-    // Clear detail card after delete
+    // Clear detail card
     detailId.innerText = "-";
-
 
     detailName.innerText = "-";
 
-
     detailDescription.innerText = "-";
-
 
     detailPriority.innerText = "-";
 
-
     detailCategory.innerText = "-";
-
 
     detailStatus.innerText = "-";
 
-
     detailStart.innerText = "-";
 
-
     detailDue.innerText = "-";
+
 });
 
 // =====================================================
